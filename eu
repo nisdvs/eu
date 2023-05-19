@@ -1,0 +1,30 @@
+create database universitade; 
+use universitade;
+
+create table cadastramento_usuarios(
+id bigint not null auto_increment,
+nome varchar(100) not null,
+email varchar(100) not null,
+data_nascimento datetime not null,
+data_cadastro datetime default now(),
+senha varchar (100) not null,
+ocupações varchar (100) not null,
+primary key(id)
+);
+
+create table acesso(
+id bigint not null auto_increment,
+cargos_acesso varchar (100) not null,
+primary key(id),
+foreign key(id) references cadastramento_usuarios(id)
+);
+
+create table local(
+id bigint not null auto_increment,
+nome_local varchar (1000) not null,
+bloco_universidade varchar (1) not null,
+ocupação varchar (100) not null,
+primary key (id)
+);
+
+create table checklist(
